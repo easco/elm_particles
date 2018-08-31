@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Main</title>
+  <script src="./main.js"></script>
+  <script src="./particles.js"></script>
+</head>
+
+<body>
+<div id="content"></div>
+
+<script>
+    var app = Elm.Main.init(
+        { 
+            node: document.getElementById("content"),
+            flags: 'IgnoreMe'
+        });
+    app.ports.randomizeParticles.subscribe(
+        function(particles) {
+            const newParticles = particles.map((particle) => {
+                const randomAngle = Math.random() * (Math.PI / 2.0) - (Math.PI / 4.0)
+                const randomVelocity = 20 + Math.random() * 60
+                return Object.assign(particle, {
+                    age: Math.round(Math.random() * 10),
+                    x : 0,
+                    y : 0,
+                    dx : randomVelocity * Math.sin(randomAngle),
+                    dy : -randomVelocity * Math.cos(randomAngle)
+                })
+            })
+
+            app.ports.randomizedParticles.send(newParticles);
+        });
+</script>
+</body>
+</html>
