@@ -1,5 +1,7 @@
 {
     "type": "application",
+    "name": "easco/elm_particles",
+    "license": "MIT",
     "source-directories": [
         "src"
     ],
