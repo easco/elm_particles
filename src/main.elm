@@ -1,4 +1,17 @@
-module Main exposing (Model, Msg(..), init, initialModel, main, particleToCircle, particlesToCircles, spawnNewParticles, step, subscriptions, update, view)
+module Main exposing
+    ( Model
+    , Msg(..)
+    , init
+    , initialModel
+    , main
+    , particleToCircle
+    , particlesToCircles
+    , spawnNewParticles
+    , step
+    , subscriptions
+    , update
+    , view
+    )
 
 import Browser exposing (..)
 import Browser.Events exposing (onAnimationFrame)
